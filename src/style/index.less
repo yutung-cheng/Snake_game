@@ -1,0 +1,91 @@
+// Declare a variable for background color.
+@bgColor: #b7d4a8;
+
+// Clear default style
+* {
+  margin: 0;
+  padding: 0;
+  /// Change Box-container calculating method.
+  /// This setting will provide a "Full" container size.
+  /// Instead of considering the border, margin, and padding size.
+  box-sizing: border-box;
+}
+
+// Setup font in body.
+body {
+  font: bold 20px "Courier";
+}
+
+// Set up main-container's styling
+#main-container {
+  height: 420px;
+  width: 360px;
+  background-color: @bgColor; //Setup bg color
+  margin: 100px auto; //Setup center and top with 100px margin
+  border: 10px solid black;
+  border-radius: 15px;
+  display: flex; // Turn on flex
+
+  // Setup main direction for flex to column
+  flex-flow: column; // Set to column
+  justify-content: space-evenly; //main-align
+  align-items: center; //cross-align
+
+  // Set up stage-container styling.
+  #stage-container {
+    height: 304px;
+    width: 304px;
+    border: 2px solid black;
+    border-radius: 2px;
+    position: relative; //Turn on position relative
+  }
+
+  #pause {
+    background-color: fade(grey, 40%);
+    text-align: center;
+    padding: 5%;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  // Set up score-panel styling
+  #score-panel {
+    width: 300px;
+    display: flex;
+    justify-content: space-between; //main-align
+  }
+
+  // Set up snake styline, but the snake will put inside the <div>.
+  #snake-container #snake-style {
+    width: 10px;
+    height: 10px;
+    border: 1px solid @bgColor; // Set a border color same as bg color. So we can see the snake dot smaller a little bit.
+    background-color: black; //black
+    position: absolute; //Turn on position absolute in case the snake missing.
+  }
+
+  // Set up food styling
+  #food {
+    width: 8px;
+    height: 8px;
+    display: flex;
+    flex-flow: row wrap; // Set to row, wrap will change line automatically if no space.
+    justify-content: space-between; //main-align
+    align-content: space-between; //cross-align
+    transform: rotate(45deg) translate(1.5px); //Rotate 45 degrees.
+    position: absolute;
+
+    // Temporary use only...
+    left: 40px;
+    top: 100px;
+
+    #food-style {
+      width: 3.75px;
+      height: 3.75px;
+      background-color: fuchsia;
+    }
+  }
+}
