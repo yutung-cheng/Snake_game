@@ -132,7 +132,9 @@ export default class GameControl {
     // If snake is alive...
     // Every XXX seconds run `this.move` so this snake will move continuously.
     // Every level will decrease 30 speed. Maximum speed is 30.
-    setTimeout(this.move.bind(this), 200 - (this.scorePanel.level - 1) * 20);
+    this.isAlive &&
+      !this.isPause &&
+      setTimeout(this.move.bind(this), 200 - (this.scorePanel.level - 1) * 20);
   }
 
   // Check if Snake got the food... if yes, do something more...
